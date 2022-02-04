@@ -1,3 +1,5 @@
+import { fetchTasks } from '../actions/tasks.js';
+
 const initialState = {
   tasks: [
     { id: 1, title: 'test task 1', completed: false },
@@ -16,9 +18,6 @@ export default (state = initialState, action) => {
       const { id } = action.payload;
       return { ...state, tasks: state.tasks.filter((t) => t.id !== id) };
     }
-    case "TASKS_FETCH": {
-      return state;
-    }
     case "TASKS_LOADED": {
       const { tasks } = action.payload;
       return { ...state, tasks };
@@ -35,4 +34,10 @@ export default (state = initialState, action) => {
     default:
       return state;
   }
+};
+
+export const fetchTodos = () => (dispatch) => {
+  fetch('https://jsonplaceholder.typicode.com/todos?_limit=10')
+    .then((resp) => resp.json())
+    .then((tasks) => dispatch(fetchTasks(tasks)));
 };
