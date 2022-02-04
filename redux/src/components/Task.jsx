@@ -15,7 +15,7 @@ const Task = ({ id, title, completed }) => {
 
   return (
     <li className="list-item">
-      <Button type="checkbox" click={handleCompleted} />
+      <input type="checkbox" checked={completed} readOnly onClick={handleCompleted} />
       <span>{id}</span>
       <span className={`${completed ? 'completed' : ''}`}>{title}</span>
       <Button type="button" text="x" click={handleRemove} />

@@ -16,6 +16,13 @@ export default (state = initialState, action) => {
       const { id } = action.payload;
       return { ...state, tasks: state.tasks.filter((t) => t.id !== id) };
     }
+    case "TASKS_FETCH": {
+      return state;
+    }
+    case "TASKS_LOADED": {
+      const { tasks } = action.payload;
+      return { ...state, tasks };
+    }
     case "TASK_COMPLETED": {
       const { id } = action.payload;
       return {
