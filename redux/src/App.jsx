@@ -10,7 +10,14 @@ const App = () => {
     <div className="wrap">
       <Header />
       <ul>
-        {tasks.map(({ id, title }) => <Task key={id} id={id} title={title} />)}
+        {tasks.map(({ id, title, completed }) => (
+          <Task
+            key={id}
+            id={id}
+            title={title}
+            completed={completed}
+          />
+        ))}
       </ul>
     </div>
   );

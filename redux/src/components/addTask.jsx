@@ -9,7 +9,7 @@ const AddTask = () => {
 
   const addtaskhandler = (e) => {
     e.preventDefault();
-    dispatch(addTask({ id: Date.now(), title: text }));
+    dispatch(addTask({ id: Date.now(), title: text, completed: false }));
     setText('');
   };
 

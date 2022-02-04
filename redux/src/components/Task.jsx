@@ -1,20 +1,24 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import Button from './Button.jsx';
+import { removeTask, completedTask } from '../actions/tasks.js';
 
-const Task = ({ id, title }) => {
+const Task = ({ id, title, completed }) => {
   const dispatch = useDispatch();
 
-  const handleClick = () => {
-    dispatch({ type: "TASK_REMOVE", payload: { id } });
+  const handleRemove = () => {
+    dispatch(removeTask(id));
+  };
+  const handleCompleted = () => {
+    dispatch(completedTask(id));
   };
 
   return (
     <li className="list-item">
-      <Button type="checkbox" />
+      <Button type="checkbox" click={handleCompleted} />
       <span>{id}</span>
-      <span>{title}</span>
-      <Button type="button" text="x" click={handleClick} />
+      <span className={`${completed ? 'completed' : ''}`}>{title}</span>
+      <Button type="button" text="x" click={handleRemove} />
     </li>
   );
 };
