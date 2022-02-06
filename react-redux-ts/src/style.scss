@@ -1,4 +1,16 @@
 * {
   box-sizing: border-box;
 }
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+.list-item {
+  padding: 10px;
+  border: 1px solid gray;
+  margin-bottom: 5px;
 
+  & > span:not(:last-child) {
+    margin-right: 15px;
+  }
+}
