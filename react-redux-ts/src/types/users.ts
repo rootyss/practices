@@ -3,6 +3,10 @@ export enum UserActionTypes {
   FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS',
   FETCH_USERS_ERROR = 'FETCH_USERS_ERROR',
 }
+export interface UItem {
+  id?: number
+  name: string;
+}
 
 export interface UserState {
   users: any[];

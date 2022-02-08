@@ -1,10 +1,14 @@
 import React from 'react';
 import './App.css';
+import UserList from "./components/UserList";
 
 const App = () => {
 
   return (
-    <div>Start1</div>
+    <div>
+      <UserList />
+      Start1
+    </div>
     )
 }
 
